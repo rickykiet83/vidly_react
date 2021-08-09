@@ -16,6 +16,12 @@ code {
 .navbar {
   margin-bottom: 30px;
 }
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
 
 .clickable {
   cursor: pointer;
