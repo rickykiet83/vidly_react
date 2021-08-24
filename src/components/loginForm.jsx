@@ -2,12 +2,20 @@ import { Component } from 'react';
 import React from 'react';
 
 class LoginForm extends Component {
-  username = React.createRef();
+  state = {
+    account: { username: '', password: '' },
+  };
 
   handleSubmit = (e) => {
     e.preventDefault();
 
     console.log('Submitted');
+  };
+
+  handleChange = (e) => {
+    const account = { ...this.state.account };
+    account.username = e.currentTarget.value;
+    this.setState({ account });
   };
 
   render() {
@@ -25,6 +33,8 @@ class LoginForm extends Component {
                 type='text'
                 className='form-control'
                 id='email'
+                value={this.state.account.username}
+                onChange={this.handleChange}
               />
             </div>
           </div>
@@ -33,7 +43,12 @@ class LoginForm extends Component {
               Password
             </label>
             <div className='col-sm-4'>
-              <input type='password' className='form-control' id='password' />
+              <input
+                value={this.state.account.password}
+                type='password'
+                className='form-control'
+                id='password'
+              />
             </div>
           </div>
           <div className='col col-sm-2'>
