@@ -1,6 +1,9 @@
 import { Component } from 'react';
+import React from 'react';
 
 class LoginForm extends Component {
+  username = React.createRef();
+
   handleSubmit = (e) => {
     e.preventDefault();
 
@@ -14,10 +17,15 @@ class LoginForm extends Component {
         <form onSubmit={this.handleSubmit}>
           <div className='mb-3 col'>
             <label htmlFor='email' className='col-sm-2 col-form-label'>
-              Email
+              Username
             </label>
             <div className='col-sm-4'>
-              <input type='password' className='form-control' id='email' />
+              <input
+                autoFocus
+                type='text'
+                className='form-control'
+                id='email'
+              />
             </div>
           </div>
           <div className='mb-3 col'>
