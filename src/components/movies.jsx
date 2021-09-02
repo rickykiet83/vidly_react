@@ -7,7 +7,7 @@ import MoviesTable from './moviesTable';
 import Pagination from './common/pagination';
 import SearchBox from './searchBox';
 import _ from 'lodash';
-import { getGenres } from '../services/fakeGenreService';
+import { getGenres } from '../services/genreService';
 import paginate from './../utils/paginate';
 
 class Movies extends Component {
@@ -21,8 +21,9 @@ class Movies extends Component {
     selectedGenre: null,
   };
 
-  componentDidMount() {
-    const genres = [{ _id: '', name: 'All genres' }, ...getGenres()];
+  async componentDidMount() {
+    const { data } = await getGenres();
+    const genres = [{ _id: '', name: 'All genres' }, ...data];
     this.setState({ movies: getMovies(), genres });
   }
 
