@@ -31,7 +31,7 @@ class App extends Component {
     return (
       <React.Fragment>
         <ToastContainer />
-        <NavBar />
+        <NavBar user={this.state.user} />
         <main className='container'>
           <Switch>
             <Route path='/login' component={LoginForm}></Route>
