@@ -6,6 +6,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 
 import Customers from './components/customers';
 import LoginForm from './components/loginForm';
+import Logout from './components/logout';
 import MovieForm from './components/movieForm';
 import Movies from './components/movies';
 import NavBar from './components/navBar';
@@ -35,6 +36,7 @@ class App extends Component {
         <main className='container'>
           <Switch>
             <Route path='/login' component={LoginForm}></Route>
+            <Route path='/logout' component={Logout}></Route>
             <Route path='/register' component={RegisterForm}></Route>
             <Route path='/movies/:id' component={MovieForm}></Route>
             <Route path='/movies' component={Movies}></Route>
